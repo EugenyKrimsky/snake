@@ -5,9 +5,9 @@ export default class Head extends Cell {
     super(options);
     this.direction = 'right';
 
-    window.addEventListener('keydown', this.turn.bind(this))
+    window.addEventListener('keydown', this.turn.bind(this));
   }
-  move() {
+  turn() {
 
   }
 }

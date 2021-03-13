@@ -13,6 +13,8 @@ export default class Field {
 
     this.app = document.querySelector('#app');
     this.app.insertAdjacentElement('beforeend', this.$field);
+
+    this.snake = null;
   }
   fillField() {
     for (let i = 0; i < this.lenY; i++) {
@@ -29,9 +31,5 @@ export default class Field {
         this.$field.childNodes[i].insertAdjacentElement('beforeend', this.cells[i][j].$cell);
       }
     }
-  }
-  spawnSnake() {
-    const snake = new Snake({ length: 1, head: { x: 2, y: 2 } });
-    window.snake = snake;
   }
 }

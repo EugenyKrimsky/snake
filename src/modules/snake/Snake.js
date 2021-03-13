@@ -1,3 +1,4 @@
+import Cell from "../field/cells/Cell";
 import Head from "./parts/Head";
 
 export default class Snake {
@@ -8,7 +9,29 @@ export default class Snake {
   }
   startMoving() {
     setInterval(() => {
-      this.head.move();
+      this.move();
     }, 1000);
   }
+  move() {
+    switch (this.head.direction) {
+      case 'up':
+        this.head.y++;
+        this.renderSnake();
+        break;
+      case 'right':
+        this.head.x++;
+        this.renderSnake();
+        break;
+      case 'down':
+        this.head.y--;
+        this.renderSnake();
+        break;
+      case 'left':
+        this.head.x--;
+        this.renderSnake();
+        break;
+    }
+    console.log(this.head);
+  }
+
 }
