@@ -6,6 +6,8 @@ export default class Head extends Cell {
     this.$cell.className = 'cell head';
     this.direction = 'right';
 
+    this._state = options.size;
+
     window.addEventListener('keydown', this.turn.bind(this));
   }
 
@@ -16,23 +18,27 @@ export default class Head extends Cell {
   move() {
     switch (this.direction) {
       case 'up':
-
         this.y--;
+        if (this.y < 0) this.y = this._state.lenY - 1;
         this._subscriber();
         break;
       case 'right':
 
         this.x++;
+        if (this.x > this._state.lenX) this.x = 0;
         this._subscriber();
+
         break;
       case 'down':
 
         this.y++;
+        if (this.y > this._state.lenY) this.y = 0;;
         this._subscriber();
         break;
       case 'left':
 
         this.x--;
+        if (this.x < 0) this.x = this._state.lenX - 1;;
         this._subscriber();
         break;
     }

@@ -12,7 +12,7 @@ export default class Snake {
     this.didStartMoving = true;
     setInterval(() => {
       this.head.move();
-    }, 300);
+    }, 100);
   }
 
 

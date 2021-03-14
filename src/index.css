@@ -6,14 +6,12 @@
   display: flex;
 }
 .cell {
-  width: 60px;
-  height: 60px;
+  width: 15px;
+  height: 15px;
   background: rgb(184, 184, 184);
-  border: 1px solid grey;
 }
 .head {
-  width: 60px;
-  height: 60px;
+  width: 15px;
+  height: 15px;
   background: rgb(133, 255, 188);
-  border: 1px solid grey;
 }
