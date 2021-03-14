@@ -9,9 +9,13 @@ const field = new Field({
 
 window.field = field;
 
+field.snake = new Snake({ length: 1, head: { x: 4, y: 2 } });
+
 field.fillField();
 field.renderField();
 
-const snake = new Snake({ length: 1, head: { x: 2, y: 2 } });
-field.snake = snake;
-// snake.startMoving();
+field.snake.head.subscribe(field.renderCells.bind(field));
+field.snake.startMoving();
+// field.renderCells();
+
+

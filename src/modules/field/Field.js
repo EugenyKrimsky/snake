@@ -21,6 +21,7 @@ export default class Field {
       this.cells.push([]);
       for (let j = 0; j < this.lenX; j++) {
         this.cells[i].push(new Cell({ y: i, x: j }));
+
       }
     }
   }
@@ -31,5 +32,14 @@ export default class Field {
         this.$field.childNodes[i].insertAdjacentElement('beforeend', this.cells[i][j].$cell);
       }
     }
+  }
+  renderCells() {
+    this.cells.forEach(el => {
+      el.forEach(el => {
+        if (el.x === this.snake.head.x && el.y === this.snake.head.y) {
+          console.log(el);
+        }
+      })
+    })
   }
 }

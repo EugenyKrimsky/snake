@@ -6,32 +6,14 @@ export default class Snake {
     this.length = options.length;
     this.head = new Head(options.head);
     this.body = this.length > 1 ? [] : null;
+    this.didStartMoving = false;
   }
   startMoving() {
+    this.didStartMoving = true;
     setInterval(() => {
-      this.move();
+      this.head.move();
     }, 1000);
   }
-  move() {
-    switch (this.head.direction) {
-      case 'up':
-        this.head.y++;
-        this.renderSnake();
-        break;
-      case 'right':
-        this.head.x++;
-        this.renderSnake();
-        break;
-      case 'down':
-        this.head.y--;
-        this.renderSnake();
-        break;
-      case 'left':
-        this.head.x--;
-        this.renderSnake();
-        break;
-    }
-    console.log(this.head);
-  }
+
 
 }
