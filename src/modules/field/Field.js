@@ -1,3 +1,4 @@
+import Head from "../snake/parts/Head";
 import Snake from "../snake/Snake";
 import Cell from "./cells/Cell";
 
@@ -16,7 +17,7 @@ export default class Field {
 
     this.snake = null;
   }
-  fillField() {
+  fillCells() {
     for (let i = 0; i < this.lenY; i++) {
       this.cells.push([]);
       for (let j = 0; j < this.lenX; j++) {
@@ -34,12 +35,19 @@ export default class Field {
     }
   }
   renderCells() {
-    this.cells.forEach(el => {
-      el.forEach(el => {
-        if (el.x === this.snake.head.x && el.y === this.snake.head.y) {
-          console.log(el);
+    for (let i = 0; i < this.cells.length; i++) {
+      for (let j = 0; j < this.cells[i].length; j++) {
+        if (j === this.snake.head.x && i === this.snake.head.y) {
+          this.cells[i][j] = this.snake.head;
+
+          this.$field.innerHTML = '';
+          this.renderField();
+
+          if (this.cells[i].find(cell => cell instanceof Head)) {
+            this.cells[i][j] = new Cell({ x: j, y: i })
+          }
         }
-      })
-    })
+      }
+    }
   }
 }
