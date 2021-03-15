@@ -6,7 +6,7 @@ module.exports = {
   mode: 'development',
   devtool: 'source-map',
   devServer: {
-    contentBase: './dist/',
+    contentBase: './dist',
     hot: true
   },
   entry: {
@@ -18,7 +18,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/template.html',
+      template: path.resolve(__dirname, './src/template.html'),
       filename: 'index.html'
     }),
     new CleanWebpackPlugin()
@@ -30,5 +30,17 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       }
     ]
-  }
+  },
+  // resolve: {
+  //   fallback: {
+  //     "util": false,
+  //     "path": false,
+  //     "crypto": false,
+  //     "buffer": false,
+  //     "https": false,
+  //     "http": false,
+  //     "vm": false,
+  //     "os": false
+  //   }
+  // }
 }

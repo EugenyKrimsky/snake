@@ -1,4 +1,4 @@
-import Cell from "../field/cells/Cell";
+import Cell from "../field/Cell";
 import Head from "./parts/Head";
 
 export default class Snake {
@@ -12,7 +12,7 @@ export default class Snake {
     this.didStartMoving = true;
     setInterval(() => {
       this.head.move();
-    }, 100);
+    }, 1000);
   }
 
 

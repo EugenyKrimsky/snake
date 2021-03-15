@@ -1,4 +1,4 @@
-import Cell from "../../field/cells/Cell";
+import Cell from "../../field/Cell";
 
 export default class Head extends Cell {
   constructor(options) {
@@ -8,6 +8,7 @@ export default class Head extends Cell {
 
     this._state = options.size;
 
+    this.$field = document.querySelector('.field');
     window.addEventListener('keydown', this.turn.bind(this));
   }
 
@@ -18,25 +19,27 @@ export default class Head extends Cell {
   move() {
     switch (this.direction) {
       case 'up':
+        this.$field.childNodes[this.y].childNodes[this.x].className = 'cell';
         this.y--;
         if (this.y < 0) this.y = this._state.lenY - 1;
         this._subscriber();
         break;
       case 'right':
-
+        this.$field.childNodes[this.y].childNodes[this.x].className = 'cell';
         this.x++;
         if (this.x > this._state.lenX) this.x = 0;
         this._subscriber();
 
+
         break;
       case 'down':
-
+        this.$field.childNodes[this.y].childNodes[this.x].className = 'cell';
         this.y++;
         if (this.y > this._state.lenY) this.y = 0;;
         this._subscriber();
         break;
       case 'left':
-
+        this.$field.childNodes[this.y].childNodes[this.x].className = 'cell';
         this.x--;
         if (this.x < 0) this.x = this._state.lenX - 1;;
         this._subscriber();

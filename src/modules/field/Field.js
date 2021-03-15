@@ -1,6 +1,6 @@
 import Head from "../snake/parts/Head";
 import Snake from "../snake/Snake";
-import Cell from "./cells/Cell";
+import Cell from "./Cell";
 
 export default class Field {
   constructor(options) {
@@ -22,11 +22,10 @@ export default class Field {
       this.cells.push([]);
       for (let j = 0; j < this.lenX; j++) {
         this.cells[i].push(new Cell({ y: i, x: j }));
-
       }
     }
   }
-  renderField() {
+  createField() {
     for (let i = 0; i < this.cells.length; i++) {
       this.$field.insertAdjacentHTML('beforeend', '<div class="row"></div>');
       for (let j = 0; j < this.cells[i].length; j++) {
@@ -34,21 +33,14 @@ export default class Field {
       }
     }
   }
+  renderField(y, x) {
+    this.$field.childNodes[y].childNodes[x].className = 'head';
+  }
   renderCells() {
-    for (let i = 0; i < this.cells.length; i++) {
-      for (let j = 0; j < this.cells[i].length; j++) {
+    this.renderField(this.snake.head.y, this.snake.head.x);
 
-        if (j === this.snake.head.x && i === this.snake.head.y) {
-          this.cells[i][j] = this.snake.head;
 
-          this.$field.innerHTML = '';
-          this.renderField();
 
-          if (this.cells[i].find(cell => cell instanceof Head)) {
-            this.cells[i][j] = new Cell({ x: j, y: i })
-          }
-        }
-      }
-    }
+
   }
 }
