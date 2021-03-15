@@ -21,20 +21,24 @@ export default class Head extends Cell {
       case 'up':
         this.$field.childNodes[this.y].childNodes[this.x].className = 'cell';
         this.y--;
-        if (this.y < 0) this.y = this._state.lenY - 1;
+        if (this.y < 0) this.y = this._state.lenY - 1;;
         this._subscriber();
         break;
       case 'right':
         this.$field.childNodes[this.y].childNodes[this.x].className = 'cell';
         this.x++;
+        if (this.x === this._state.lenX) {
+          this.x = 0;
+        }
         if (this.x > this._state.lenX) this.x = 0;
         this._subscriber();
-
-
         break;
       case 'down':
         this.$field.childNodes[this.y].childNodes[this.x].className = 'cell';
         this.y++;
+        if (this.y === this._state.lenY) {
+          this.y = 0;
+        }
         if (this.y > this._state.lenY) this.y = 0;;
         this._subscriber();
         break;
@@ -47,36 +51,86 @@ export default class Head extends Cell {
     }
   }
   turn(e) {
-    if (e.code === 'ArrowRight') {
-      switch (this.direction) {
-        case 'up':
-          this.direction = 'right';
-          break;
-        case 'right':
-          this.direction = 'down';
-          break;
-        case 'down':
-          this.direction = 'left';
-          break;
-        case 'left':
-          this.direction = 'up';
-          break;
-      }
-    } else if (e.code === 'ArrowLeft') {
-      switch (this.direction) {
-        case 'up':
-          this.direction = 'left';
-          break;
-        case 'right':
-          this.direction = 'up';
-          break;
-        case 'down':
-          this.direction = 'right';
-          break;
-        case 'left':
-          this.direction = 'down';
-          break;
-      }
+    switch (this.direction) {
+      case 'up':
+        switch (e.code) {
+          case 'ArrowRight':
+            this.direction = 'right';
+            break;
+          case 'ArrowLeft':
+            this.direction = 'left';
+            break;
+          default:
+            break;
+        }
+        break;
+      case 'right':
+        switch (e.code) {
+          case 'ArrowUp':
+            this.direction = 'up';
+            break;
+          case 'ArrowDown':
+            this.direction = 'down';
+            break;
+          default:
+            break;
+        }
+        break;
+      case 'down':
+        switch (e.code) {
+          case 'ArrowRight':
+            this.direction = 'right';
+            break;
+          case 'ArrowLeft':
+            this.direction = 'left';
+            break;
+          default:
+            break;
+        }
+        break;
+      case 'left':
+        switch (e.code) {
+          case 'ArrowUp':
+            this.direction = 'up';
+            break;
+          case 'ArrowDown':
+            this.direction = 'down';
+            break;
+          default:
+            break;
+        }
+        break;
     }
+    // if (e.code === 'ArrowRight') {
+    //   switch (this.direction) {
+    //     case 'up':
+    //       this.direction = 'right';
+    //       break;
+    //     case 'right':
+    //       this.direction = 'down';
+    //       break;
+    //     case 'down':
+    //       this.direction = 'left';
+    //       break;
+    //     case 'left':
+    //       this.direction = 'up';
+    //       break;
+    //   }
+    // } else if (e.code === 'ArrowLeft') {
+    //   switch (this.direction) {
+    //     case 'up':
+    //       this.direction = 'left';
+    //       break;
+    //     case 'right':
+    //       this.direction = 'up';
+    //       break;
+    //     case 'down':
+    //       this.direction = 'right';
+    //       break;
+    //     case 'left':
+    //       this.direction = 'down';
+    //       break;
+    //   }
+    // }
   }
 }
