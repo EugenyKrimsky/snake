@@ -6,7 +6,4 @@ export default class Cell {
     this.$cell = document.createElement('div');
     this.$cell.className = 'cell';
   }
-  render() {
-
-  }
 }

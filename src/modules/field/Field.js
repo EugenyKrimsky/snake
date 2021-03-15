@@ -38,9 +38,5 @@ export default class Field {
   }
   renderCells() {
     this.renderField(this.snake.head.y, this.snake.head.x);
-
-
-
-
   }
 }
