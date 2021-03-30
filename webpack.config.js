@@ -30,17 +30,5 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       }
     ]
-  },
-  // resolve: {
-  //   fallback: {
-  //     "util": false,
-  //     "path": false,
-  //     "crypto": false,
-  //     "buffer": false,
-  //     "https": false,
-  //     "http": false,
-  //     "vm": false,
-  //     "os": false
-  //   }
-  // }
+  }
 }

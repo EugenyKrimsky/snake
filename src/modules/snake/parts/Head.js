@@ -15,40 +15,31 @@ export default class Head extends Cell {
   subscribe(observer) {
     this._subscriber = observer;
   }
-  _subscriber() { }
-  move() {
-    switch (this.direction) {
-      case 'up':
-        this.$field.childNodes[this.y].childNodes[this.x].className = 'cell';
-        this.y--;
-        if (this.y < 0) this.y = this._state.lenY - 1;;
-        this._subscriber();
-        break;
-      case 'right':
-        this.$field.childNodes[this.y].childNodes[this.x].className = 'cell';
-        this.x++;
-        if (this.x === this._state.lenX) {
-          this.x = 0;
-        }
-        if (this.x > this._state.lenX) this.x = 0;
-        this._subscriber();
-        break;
-      case 'down':
-        this.$field.childNodes[this.y].childNodes[this.x].className = 'cell';
-        this.y++;
-        if (this.y === this._state.lenY) {
-          this.y = 0;
-        }
-        if (this.y > this._state.lenY) this.y = 0;;
-        this._subscriber();
-        break;
-      case 'left':
-        this.$field.childNodes[this.y].childNodes[this.x].className = 'cell';
-        this.x--;
-        if (this.x < 0) this.x = this._state.lenX - 1;;
-        this._subscriber();
-        break;
+  _subscriber() {}
+  step(cord) {
+    this.$field.childNodes[this.y].childNodes[this.x].className = 'cell';
+
+    if (this.direction === 'right' || this.direction === 'down') {
+      this[cord]++;
+
+      if (this[cord] === this._state.lenX) {
+        this[cord] = 0;
+      }
+
+      if (this[cord] > this._state.lenX) this[cord] = 0;
+    } else {
+      this[cord]--;
+
+      if (this[cord] < 0) this[cord] = this._state.lenX - 1;
     }
+  }
+  move() {
+    if (this.direction === 'up' || this.direction === 'down') {
+      this.step('y');
+    } else {
+      this.step('x');
+    }
+    this._subscriber();
   }
   turn(e) {
     if (this.direction === 'up' || this.direction === 'down') {
