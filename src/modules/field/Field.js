@@ -17,6 +17,7 @@ export default class Field {
 
 		this.snake = null;
 	}
+
 	fillCells() {
 		for (let i = 0; i < this.lenY; i++) {
 			this.cells.push([]);
@@ -25,6 +26,7 @@ export default class Field {
 			}
 		}
 	}
+
 	createField() {
 		for (let i = 0; i < this.cells.length; i++) {
 			this.$field.insertAdjacentHTML("beforeend", '<div class="row"></div>');
@@ -33,9 +35,11 @@ export default class Field {
 			}
 		}
 	}
+
 	renderField(y, x) {
 		this.$field.childNodes[y].childNodes[x].className = "head";
 	}
+
 	renderCells() {
 		this.renderField(this.snake.head.y, this.snake.head.x);
 	}

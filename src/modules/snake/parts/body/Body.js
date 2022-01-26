@@ -6,15 +6,16 @@ export default class Body {
 
 		this.parts = [];
 		for (let i = 0; i < this.length; i++) {
-			this.parts.push(new Part({ x: null, y: null }));
+			this.parts.push(new Part({ x: null, y: null, headCords: options.headCords }));
 		}
 	}
 
-	defineCords(direction) {
+	defineCords(direction, i) {
 		switch (head.direction) {
 			case "up":
 				break;
 			case "right":
+				
 				break;
 			case "right":
 				break;
@@ -24,15 +25,7 @@ export default class Body {
 	}
 
 	follow(head) {
-		switch (head.direction) {
-			case "up":
-				break;
-			case "right":
-				break;
-			case "right":
-				break;
-			case "right":
-				break;
+		for (let part of this.parts) {
 		}
 	}
 }

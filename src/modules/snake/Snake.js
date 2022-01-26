@@ -19,17 +19,13 @@ export default class Snake {
 				: null;
 		this.didStartMoving = false;
 	}
+
 	startMoving() {
 		this.didStartMoving = true;
 
 		setInterval(() => {
 			this.head.move();
-
-			this.body.follow({
-				x: this.head.x,
-				y: this.head.y,
-				direction: this.head.direction,
-			});
-		}, 100);
+			this.body.follow();
+		}, 1000);
 	}
 }

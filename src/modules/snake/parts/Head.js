@@ -14,8 +14,11 @@ export default class Head extends Cell {
 
 	subscribe(observer) {
 		this._subscriber = observer;
+
 	}
+
 	_subscriber() {}
+
 	step(cord) {
 		this.$field.childNodes[this.y].childNodes[this.x].className = "cell";
 
@@ -33,6 +36,7 @@ export default class Head extends Cell {
 			if (this[cord] < 0) this[cord] = this._state.lenX - 1;
 		}
 	}
+
 	move() {
 		if (this.direction === "up" || this.direction === "down") {
 			this.step("y");
@@ -41,6 +45,7 @@ export default class Head extends Cell {
 		}
 		this._subscriber();
 	}
+
 	turn(e) {
 		if (this.direction === "up" || this.direction === "down") {
 			switch (e.code) {

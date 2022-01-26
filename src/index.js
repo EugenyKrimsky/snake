@@ -15,11 +15,11 @@ window.field = field;
 field.snake = new Snake({
 	length: 3,
 	head: {
-		x: 1,
+		x: 3,
 		y: 1,
 		size: {
-			lenX: LEN_X,
-			lenY: LEN_Y,
+			lenX: field.lenX,
+			lenY: field.lenY,
 		},
 	},
 });
