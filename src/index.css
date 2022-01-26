@@ -1,15 +1,16 @@
 #app {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 .row {
-  display: flex;
+	display: flex;
 }
-.cell, .head {
-  width: 15px;
-  height: 15px;
-  background: rgb(184, 184, 184);
+.cell,
+.head {
+	width: 15px;
+	height: 15px;
+	background: rgb(184, 184, 184);
 }
 .head {
-  background: rgb(133, 255, 188);
+	background: rgb(133, 255, 188);
 }

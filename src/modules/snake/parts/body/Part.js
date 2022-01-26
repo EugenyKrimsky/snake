@@ -1,7 +1,7 @@
-import Cell from "../../../field/Cell"
+import Cell from "../../../field/Cell";
 
 export default class Part extends Cell {
-  constructor(options) {
-    super(options);
-  }
+	constructor(options) {
+		super(options);
+	}
 }
