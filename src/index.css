@@ -6,11 +6,15 @@
 	display: flex;
 }
 .cell,
-.head {
+.head,
+.part {
 	width: 15px;
 	height: 15px;
 	background: rgb(184, 184, 184);
 }
 .head {
+	background: rgb(0, 192, 86);
+}
+.part {
 	background: rgb(133, 255, 188);
 }

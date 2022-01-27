@@ -46,7 +46,7 @@ export default class Field {
 		
 		if (snake.length === 1) return;
 		for (let part of snake.body.parts) {
-			this.$field.childNodes[part.y].childNodes[part.x].className = "head";
+			this.$field.childNodes[part.y].childNodes[part.x].className = "part";
 		}
 	}
 
