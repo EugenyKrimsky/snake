@@ -36,11 +36,21 @@ export default class Field {
 		}
 	}
 
-	renderField(y, x) {
-		this.$field.childNodes[y].childNodes[x].className = "head";
+	clear(x, y) {
+		this.$field.childNodes[y].childNodes[x].className = 'cell';
+	}
+
+	renderField(snake) {
+		// console.log(snake.head.x, snake.body.parts[2].x);
+		this.$field.childNodes[snake.head.y].childNodes[snake.head.x].className = "head";
+		
+		if (snake.length === 1) return;
+		for (let part of snake.body.parts) {
+			this.$field.childNodes[part.y].childNodes[part.x].className = "head";
+		}
 	}
 
 	renderCells() {
-		this.renderField(this.snake.head.y, this.snake.head.x);
+		this.renderField(this.snake);
 	}
 }

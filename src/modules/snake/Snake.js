@@ -18,14 +18,14 @@ export default class Snake {
 				  })
 				: null;
 		this.didStartMoving = false;
+		this.speed = options.speed;
 	}
 
 	startMoving() {
 		this.didStartMoving = true;
 
 		setInterval(() => {
-			this.head.move();
-			this.body.follow();
-		}, 1000);
+			this.head.move.call(this);
+		}, this.speed);
 	}
 }

@@ -38,12 +38,14 @@ export default class Head extends Cell {
 	}
 
 	move() {
-		if (this.direction === "up" || this.direction === "down") {
-			this.step("y");
+		if (this.head.direction === "up" || this.head.direction === "down") {
+			this.head.step("y");
 		} else {
-			this.step("x");
+			this.head.step("x");
 		}
-		this._subscriber();
+
+		if (this.length > 1) this.body.follow(this.head);
+		this.head._subscriber();
 	}
 
 	turn(e) {
