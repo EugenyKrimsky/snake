@@ -5,7 +5,7 @@ import Snake from "./modules/snake/Snake";
 const LEN_X = 35;
 const LEN_Y = 35;
 const SNAKE_LENGTH = 5;
-const SNAKE_SPEED = 900;
+const SNAKE_SPEED = 600;
 
 const field = new Field({
 	lenX: LEN_X,

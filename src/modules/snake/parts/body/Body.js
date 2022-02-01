@@ -44,7 +44,6 @@ export default class Body {
 	}
 
 	follow(head) {
-		let i = 1;
 		if (this.parts[this.counter].direction !== head.direction) {
 			this.parts[this.counter].direction = head.direction;
 			if (this.counter + 1 === this.length) {
@@ -55,24 +54,47 @@ export default class Body {
 		}
 
 		for (let part of this.parts) {
-			if (part.order === this.length) this._subscriber(part.x, part.y);
+			this._subscriber(part.x, part.y);
 			if (head.direction === part.direction) {
-				part.x = head.x
 				switch (part.direction) {
 					case "up":
 						part.y = head.y + part.order;
+						part.x = head.x
 						break;
 					case "right":
 						part.x = head.x - part.order;
+						part.y = head.y
 						break;
 					case "down":
 						part.y = head.y - part.order;
+						part.x = head.x
 						break;
 					case "left":
 						part.x = head.x + part.order;
+						part.y = head.y
 						break;
 				}
 			}
+			// при повороте части тела всегда должны двигаться
+			//  else {
+			// 	switch (part.direction) {
+			// 		case "up":
+			// 			part.x = part[part.order - 1].x
+			// 			break;
+			// 		case "right":
+			// 			part.y = part[part.order - 1].y
+
+			// 			break;
+			// 		case "down":
+			// 			part.x = part[part.order - 1].x
+			// 			break;
+			// 		case "left":
+			// 			part.x = part[part.order - 1].x
+
+			// 			break;
+			// 	}
+
+			// }
 		}
 	}
 }
