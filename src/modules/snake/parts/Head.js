@@ -38,10 +38,13 @@ export default class Head extends Cell {
 	}
 
 	move() {
-		if (this.head.direction === "up" || this.head.direction === "down") {
-			this.head.step("y");
-		} else {
-			this.head.step("x");
+		switch(this.head.direction) {
+			case 'up':
+			case 'down':
+				this.head.step('y');
+				break;
+			default:
+				this.head.step('x');
 		}
 
 		if (this.length > 1) this.body.follow(this.head);

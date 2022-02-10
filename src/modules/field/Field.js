@@ -36,9 +36,9 @@ export default class Field {
 		}
 	}
 
-	clear(x, y) {
-		this.$field.childNodes[y].childNodes[x].className = 'cell';
-	}
+	// clear(x, y) {
+	// 	this.$field.childNodes[y].childNodes[x].className = 'cell';
+	// }
 
 	renderField(snake) {
 		// console.log(snake.head.x, snake.body.parts[2].x);
@@ -46,6 +46,17 @@ export default class Field {
 		
 		if (snake.length === 1) return;
 		for (let part of snake.body.parts) {
+			switch(part.direction) {
+				case 'up':
+					this.$field.childNodes[part.y + 1].childNodes[part.x].className = "cell";
+				case 'right':
+					this.$field.childNodes[part.y].childNodes[part.x - 1].className = "cell";
+				case 'down':
+					this.$field.childNodes[part.y - 1].childNodes[part.x].className = "cell";
+				case 'left':
+					this.$field.childNodes[part.y].childNodes[part.x + 1].className = "cell";
+
+			}
 			this.$field.childNodes[part.y].childNodes[part.x].className = "part";
 		}
 	}

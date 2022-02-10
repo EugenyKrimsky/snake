@@ -54,7 +54,6 @@ export default class Body {
 		}
 
 		for (let part of this.parts) {
-			this._subscriber(part.x, part.y);
 			if (head.direction === part.direction) {
 				switch (part.direction) {
 					case "up":

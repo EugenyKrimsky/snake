@@ -31,5 +31,4 @@ field.fillCells();
 field.createField();
 
 field.snake.head.subscribe(field.renderCells.bind(field));
-field.snake.body.subscribe(field.clear.bind(field));
 field.snake.startMoving();
